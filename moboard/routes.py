@@ -1,6 +1,14 @@
 from bottle import static_file
 
-from moboard.controllers import get_img, get_js, get_css, index, favicon, show_newsgroups
+from moboard.controllers import (
+    get_img,
+    get_js,
+    get_css,
+    index,
+    favicon,
+    show_newsgroups,
+    show_articles,
+)
 
 
 def setup_routes(app):
@@ -20,3 +28,5 @@ def setup_routes(app):
 
     # Newsgroup routes
     app.route("/newsgroups", "GET", show_newsgroups)
+
+    app.route("/show/<newsgroup_name>", "GET", show_articles)
