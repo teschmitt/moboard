@@ -7,9 +7,14 @@ authors = ["Thomas Schmitt <t.e.schmitt@posteo.de>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 bottle = "^0.12.23"
+tortoise-orm = {extras = ["aiosqlite"], version = "^0.19.2"}
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+
+[moboard]
+db_url = "sqlite://../moNNT.py/db.sqlite3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
