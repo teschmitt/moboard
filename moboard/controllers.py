@@ -1,14 +1,11 @@
-import asyncio
-from typing import Coroutine
-
 from bottle import static_file, template
 
-from moboard.models import Newsgroup, Message
-
-
-def run_async(func: Coroutine):
-    loop = asyncio.new_event_loop()
-    return loop.run_until_complete(func)
+from moboard.backend import (
+    get_all_articles,
+    get_all_newsgroups,
+    get_single_article,
+    get_current_articles,
+)
 
 
 def index(name):
@@ -32,26 +29,27 @@ def favicon():
     return static_file("favicon.ico", root="moboard/assets/img")
 
 
-async def get_all_newsgroups():
-    return [g["name"] for g in (await Newsgroup.all().values("name"))]
-
-
-def show_newsgroups():
-    return template("newsgroups.tpl", newsgroups=run_async(get_all_newsgroups()))
-
-
-async def get_all_messages(newsgroup_name):
-    return [
-        a["subject"]
-        for a in (
-            await Message.filter(newsgroup__name=newsgroup_name).values("subject")
-        )
-    ]
-
-
 def show_articles(newsgroup_name):
     return template(
         "articles.tpl",
         newsgroup_name=newsgroup_name,
-        articles=run_async(get_all_messages(newsgroup_name)),
+        articles=get_all_articles(newsgroup_name),
+    )
+
+
+def show_newsgroups():
+    return template("newsgroups.tpl", newsgroups=get_all_newsgroups())
+
+
+def show_single_article(message_id):
+    return template(
+        "single_article.tpl",
+        article=get_single_article(message_id),
+    )
+
+
+def show_index():
+    return template(
+        "index.tpl",
+        articles=get_current_articles(10),
     )

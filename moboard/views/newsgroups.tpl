@@ -4,7 +4,7 @@
 
 <ul>
   % for group in newsgroups:
-    <li>{{group}}</li>
+    <li><a href="/newsgroups/{{group}}">{{group}}</a></li>
   % end
 </ul>
 

@@ -5,10 +5,26 @@
   <h3>{{newsgroup_name}}</h3>
 </hgroup>
 
-<ul>
-  % for article in articles:
-    <li>{{article}}</li>
-  % end
-</ul>
+
+<table role="grid">
+   <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Subject</th>
+      <th scope="col">From</th>
+    </tr>
+  </thead>
+  <tbody>
+% for num, article in enumerate(articles):
+    <tr>
+      <th scope="row">{{num + 1}}</th>
+      <td>{{article["date"]}}</td>
+      <td><a href="/article/{{article['message-id']}}">{{article["subject"]}}</a></td>
+      <td>{{article["from"]}}</td>
+    </tr>
+% end
+   </tbody>
+</table>
 
 % include('layouts/footer.tpl')
