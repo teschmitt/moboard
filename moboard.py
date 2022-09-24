@@ -1,6 +1,5 @@
 
 import bottle
-from moboard.db import db_init
 from moboard.routes import setup_routes
 
 

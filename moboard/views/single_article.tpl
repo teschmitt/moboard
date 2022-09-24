@@ -7,13 +7,14 @@
 
 <article>
 <pre style="padding: 2em">
-  Date:       {{article["date"]}}
-  From:       {{article["from"]}}
-  Subject:    {{article["subject"]}}
-  Newsgroups: {{article['newsgroups']}}
-</pre>
+Date:       {{article["date"]}}
+From:       {{article["from"]}}
+Subject:    {{article["subject"]}}
+Newsgroups: {{article['newsgroups']}}
 
-{{article["body"]}}
+-----------------------------------------------
+
+{{article["body"]}}</pre>
 </article>
 
 
