@@ -24,7 +24,7 @@ def get_all_articles(newsgroup_name):
         try:
             over_response, overviews = server.over((first, last))
             if "224" in over_response:
-                articles = [article[1] for article in overviews]
+                articles = [article[1] for article in overviews[-config["load_articles"]:]]
         except nntplib.NNTPTemporaryError:
             # some error fetching articles from group
             pass
@@ -48,7 +48,7 @@ def get_single_article(message_id):
             body_started = True
             continue
         elif body_started:
-            article["body"] += line_decode
+            article["body"] += f"{line_decode}\n"
 
     return article
 

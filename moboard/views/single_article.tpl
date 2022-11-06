@@ -14,7 +14,7 @@ Newsgroups: {{article['newsgroups']}}
 
 -----------------------------------------------
 
-{{article["body"].replace("\n", "<br \>")}}</pre>
+{{article["body"]}}</pre>
 </article>
 
 
