@@ -14,6 +14,8 @@
 
   <body>
     <main class="container">
+    % from config import config
+    % if config["show_page_header"]:
         <nav>
           <ul>
             <li><strong>moboard v0.1 | a simple moNNT.py viewer</strong></li>
@@ -23,3 +25,6 @@
             <li><a href="/newsgroups">Newsgroups</a></li>
           </ul>
         </nav>
+    % else:
+    %     pass
+

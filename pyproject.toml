@@ -17,6 +17,7 @@ server_address = "127.0.0.1"
 server_port = 1190
 group = "all"
 load_articles = 20
+show_page_header = true
 
 
 [build-system]
