@@ -1,5 +1,6 @@
-from bottle import static_file, template
+from bottle import redirect, static_file, template
 
+from config import config
 from moboard.backend import (
     get_all_articles,
     get_all_newsgroups,
@@ -30,6 +31,8 @@ def favicon():
 
 
 def show_articles(newsgroup_name):
+    if config["group"] != "all" and newsgroup_name != config["group"]:
+        redirect(f"/newsgroups/{config['group']}")
     return template(
         "articles.tpl",
         newsgroup_name=newsgroup_name,
@@ -38,6 +41,8 @@ def show_articles(newsgroup_name):
 
 
 def show_newsgroups():
+    if config["group"] != "all":
+        return show_articles(config["group"])
     return template("newsgroups.tpl", newsgroups=get_all_newsgroups())
 
 
@@ -49,6 +54,8 @@ def show_single_article(message_id):
 
 
 def show_index():
+    if config["group"] != "all":
+        return show_articles(config["group"])
     return template(
         "index.tpl",
         articles=get_current_articles(10),
