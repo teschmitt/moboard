@@ -21,6 +21,5 @@
           <ul>
             <li><a href="/" role="button">Home</a></li>
             <li><a href="/newsgroups">Newsgroups</a></li>
-            <li><a href="#">Configuration</a></li>
           </ul>
         </nav>

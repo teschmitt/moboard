@@ -9,7 +9,6 @@
 <table role="grid">
    <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Date</th>
       <th scope="col">Subject</th>
       <th scope="col">From</th>
@@ -18,7 +17,6 @@
   <tbody>
 % for num, article in enumerate(articles):
     <tr>
-      <th scope="row">{{num + 1}}</th>
       <td>{{article["date"]}}</td>
       <td><a href="/article/{{article['message-id']}}">{{article["subject"]}}</a></td>
       <td>{{article["from"]}}</td>
