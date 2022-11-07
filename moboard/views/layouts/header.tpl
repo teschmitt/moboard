@@ -7,7 +7,7 @@
     <meta name="author" content="Thomas Schmitt">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <title>moboard -- a simple moNNT.py viewer</title>
+    <title>moboard | a simple moNNT.py viewer</title>
     <link href="/css/application.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -18,11 +18,9 @@
     % if config["show_page_header"]:
         <nav>
           <ul>
-            <li><strong>moboard v0.1 | a simple moNNT.py viewer</strong></li>
-          </ul>
-          <ul>
-            <li><a href="/" role="button">Home</a></li>
-            <li><a href="/newsgroups">Newsgroups</a></li>
+            <li><strong><a href="/" role="button">moboard</a> a simple moNNT.py viewer</strong></li>
+            <li>|</li>
+            <li><a role="button"  class="outline" href="/newsgroups">Go to Newsgroups</a></li>
           </ul>
         </nav>
     % else:
