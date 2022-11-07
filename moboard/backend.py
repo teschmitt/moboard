@@ -24,7 +24,7 @@ def get_all_articles(newsgroup_name):
         try:
             over_response, overviews = server.over((first, last))
             if "224" in over_response:
-                articles = [article[1] for article in overviews[-config["load_articles"]:]]
+                articles = [article[1] for article in overviews[-config["load_articles"]:][::-1]]
         except nntplib.NNTPTemporaryError:
             # some error fetching articles from group
             pass
