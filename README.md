@@ -14,6 +14,8 @@ $ poetry run python main.py
 
 All configuration options can be found in `pyproject.toml`. A quick rundown:
 
+- `host_address`: domain name / IP address of `moboard`
+- `host_port`: port under which to host `moboard`
 - `server_address`: address the server can be found under
 - `server_port`: port of the server
 - `group`: either a group name carried by the server or `"all"`. If a group name is supplied, `moboard` will only show an article list of this group on the home page, if `"all"` is given, the list of newsgroups carried by the server will be displayed.
